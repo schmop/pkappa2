@@ -20,7 +20,8 @@
 - [ ] cache matching + uncertain streams for tags
 
 ## web:
-- [ ] history reverse search with strg+r
+- [ ] history reverse search with `strg+r`
+- [ ] select the whole stream traffic of an open stream with `strg+a`
 - [ ] improve/document graph ui
 - [ ] diffing of two streams
 - [ ] render http response in iframe with correct content type
@@ -28,7 +29,7 @@
 - [ ] autocomplete keywords while typing the query "nearley unparse"
 - [ ] show matching generated marks in stream view
 - [x] let large tag queries and names overflow instead of widening the page layout
-- [ ] add open in CyberChef button to stream chunks
+- [x] add open in CyberChef button to stream chunks
 - [ ] highlight data matches in stream view
 
 ## both:
