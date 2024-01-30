@@ -98,6 +98,7 @@ export default {
       suggestionMenuOpen: false,
       suggestionMenuPosX: 0,
       suggestionMenuPosY: 0,
+      isReverseSearching: false,
     };
   },
   computed: {
@@ -139,9 +140,27 @@ export default {
   mounted() {
     this.updateConverters();
     this._keyListener = (e) => {
+      // reverse search
+      if (this.isReverseSearching && e.key === "Escape") {
+        this.isReverseSearching = false;
+        return;
+      }
+      if (this.isReverseSearching && this.$refs.searchBox.$el.contains(e.target) && e.ctrlKey && e.key === "c") {
+        this.isReverseSearching = false;
+        e.preventDefault();
+        this.searchBox = "";
+        return;
+      }
+      if (e.ctrlKey && e.key === "r") {
+
+        this.isReverseSearching = true;
+        e.preventDefault();
+        this.$refs.searchBox.focus();
+        return;
+      }
       if (["input", "textarea"].includes(e.target.tagName.toLowerCase()))
         return;
-      if (e.key != "/") return;
+      if (e.key !== "/") return;
 
       e.preventDefault();
       this.$refs.searchBox.focus();
